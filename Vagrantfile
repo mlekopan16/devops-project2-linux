@@ -16,16 +16,6 @@ Vagrant.configure("2") do |config|
     vb.cpus = 2
   end
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo apt update
-    sudo apt install -y apache2
-    sudo systemctl start 
-  SHELL
+  #injecting install-apache.sh script into VM
+  config.vm.provision :shell, path: "install-apache.sh"
 end
