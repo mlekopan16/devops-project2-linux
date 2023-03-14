@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   #disable updates checking at startup
   config.vm.box_check_update = false 
 
-  #forwarding VM port 80 to port 8080 on localhost
+  #forwarding VM port 8081 to port 8081 on localhost
   config.vm.network "forwarded_port", guest: 8081, host: 8081
 
   #provide more resources for VM
